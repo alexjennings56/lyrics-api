@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 
 import ACDC from './Components/ACDC/ACDC'
 import GunsNRoses from './Components/GunsNRoses/GunsNRoses'
-import DimashK from './Components/DimashK/DimashK'
+import MotleyCrue from './Components/MotleyCrue/MotleyCrue'
 import NotFound from './Components/NotFound/NotFound'
 
 class Routing extends React.Component {
@@ -27,14 +27,14 @@ class Routing extends React.Component {
                             <Link to="/gnr">Guns 'N Roses</Link>
                         </li>
                         <li>
-                            <Link to="/dimash">Dimash Kudaiburgen</Link>
+                            <Link to="/motleycrue">Motley Crue</Link>
                         </li>
                     </ul>
                     <Switch>
                         <Route exact path="/" component={ App } />
                         <Route path="/acdc" component={ ACDC } />
                         <Route path="/gnr" component={ GunsNRoses } />
-                        <Route path="/dimash" component={ DimashK } />
+                        <Route path="/motleycrue" component={ MotleyCrue } />
                         <Route component={ NotFound } />
                     </Switch>
                 </div>
