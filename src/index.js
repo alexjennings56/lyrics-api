@@ -15,7 +15,8 @@ class Routing extends React.Component {
     render() {
         return (
             <Router>
-                <div>
+
+                <div className='container'>
                     <ul>
                         <li>
                             <Link to="/">HOME</Link>
@@ -30,6 +31,7 @@ class Routing extends React.Component {
                             <Link to="/motleycrue">Motley Crue</Link>
                         </li>
                     </ul>
+
                     <Switch>
                         <Route exact path="/" component={ App } />
                         <Route path="/acdc" component={ ACDC } />
@@ -37,6 +39,7 @@ class Routing extends React.Component {
                         <Route path="/motleycrue" component={ MotleyCrue } />
                         <Route component={ NotFound } />
                     </Switch>
+
                 </div>
             </Router>
         )

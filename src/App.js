@@ -1,4 +1,5 @@
 import React from 'react';
+import Draggable, {DraggableCore} from 'react-draggable';
 import './App.css';
 
 class NameForm extends React.Component {
@@ -41,6 +42,17 @@ class NameForm extends React.Component {
 
     render() {
         return (
+            <Draggable
+                axis="both"
+                handle=".handle"
+                defaultPosition={{x: 0, y: 0}}
+                position={null}
+                grid={[1, 1]}
+                scale={1}
+                onStart={this.handleStart}
+                onDrag={this.handleDrag}
+                onStop={this.handleStop}>
+                <div className='handle'>
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Artist Name:
@@ -49,9 +61,10 @@ class NameForm extends React.Component {
                     <input type="text" value={this.state.song} onChange={this.handleSongChange} />
                 </label>
                 <input type="submit" value="Submit" />
-                <p>song stuff here:</p>
-                <p>{this.state.lyrics}</p>
+                <p className='lyrics'>{this.state.lyrics}</p>
             </form>
+                </div>
+            </Draggable>
         );
     }
 }

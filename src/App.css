@@ -1,3 +1,7 @@
+body {
+  background-color: #a1a09e;
+}
+
 .App {
   text-align: center;
 }
@@ -25,7 +29,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #f7f7fb;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +40,22 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.handle {
+  border: 1px solid black;
+  text-align: center;
+  background-color: #fbe3a2;
+}
+
+.lyrics {
+  white-space: pre-line;
+}
+
+
