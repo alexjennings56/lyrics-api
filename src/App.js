@@ -1,12 +1,25 @@
 import React from 'react';
-import Draggable, {DraggableCore} from 'react-draggable';
+import { Rnd } from "react-rnd";
+// import Draggable, {DraggableCore} from 'react-draggable';
 import './App.css';
+
+// const style = {
+//     display: "flex",
+//     alignItems: "center",
+//     justifyContent: "center",
+//     border: "solid 1px #ddd",
+//     background: "#f0f0f0"
+// };
 
 class NameForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {artist: '', song: '', lyrics: ''};
-
+        this.state = {
+            artist: '', song: '', lyrics: '', width: '',
+            height: '',
+            x: 1,
+            y: 1
+        };
 
         this.handleArtistChange = this.handleArtistChange.bind(this);
         this.handleSongChange = this.handleSongChange.bind(this);
@@ -42,29 +55,33 @@ class NameForm extends React.Component {
 
     render() {
         return (
-            <Draggable
-                axis="both"
-                handle=".handle"
-                defaultPosition={{x: 0, y: 0}}
-                position={null}
-                grid={[1, 1]}
-                scale={1}
-                onStart={this.handleStart}
-                onDrag={this.handleDrag}
-                onStop={this.handleStop}>
+            <Rnd
+                size={{ width: this.state.width, height: this.state.height }}
+                position={{ x: this.state.x, y: this.state.y }}
+                onDragStop={(e, d) => {
+                    this.setState({ x: d.x, y: d.y });
+                }}
+                onResizeStop={(e, direction, ref, delta, position) => {
+                    this.setState({
+                        width: ref.style.width,
+                        height: ref.style.height,
+                        ...position
+                    });
+                }}
+            >
                 <div className='handle'>
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Artist Name:
-                    <input type="text" value={this.state.artist} onChange={this.handleArtistChange} />
+                    <input type="text" value={this.state.artist} onChange={this.handleArtistChange} onMouseDown={e => e.stopPropagation()}/>
                     Song Name:
-                    <input type="text" value={this.state.song} onChange={this.handleSongChange} />
+                    <input type="text" value={this.state.song} onChange={this.handleSongChange} onMouseDown={e => e.stopPropagation()}/>
                 </label>
                 <input type="submit" value="Submit" />
                 <p className='lyrics'>{this.state.lyrics}</p>
             </form>
                 </div>
-            </Draggable>
+            </Rnd>
         );
     }
 }
