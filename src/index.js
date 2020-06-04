@@ -17,6 +17,7 @@ class Routing extends React.Component {
             <Router>
 
                 <div className='container'>
+                    <h1>Enter your favorite artist and song to get the lyrics and sing along!</h1>
                     <ul>
                         <li>
                             <Link to="/">HOME</Link>

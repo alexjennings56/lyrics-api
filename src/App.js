@@ -3,14 +3,6 @@ import { Rnd } from "react-rnd";
 // import Draggable, {DraggableCore} from 'react-draggable';
 import './App.css';
 
-// const style = {
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     border: "solid 1px #ddd",
-//     background: "#f0f0f0"
-// };
-
 class NameForm extends React.Component {
     constructor(props) {
         super(props);
